@@ -29,4 +29,10 @@ public class CallController {
     public void deleteNode(@PathVariable("id") Long id) {
         callService.deleteCallById(id);
     }
+
+    @DeleteMapping("/delete-all")
+    public void deleteAllCalls() {
+        callService.deleteAll(); // Delete all calls from your data source
+    }
+
 }

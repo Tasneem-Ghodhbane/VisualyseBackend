@@ -42,4 +42,8 @@ public interface SharedRepository extends Neo4jRepository<MyNode,String> {
             "WHERE c.id = $id " +
             "DELETE c")
     void deleteCallById(Long id);
+
+    @Query("MATCH ()-[c:Calls]->() " +
+            "DELETE c")
+    void deleteAllCalls();
 }

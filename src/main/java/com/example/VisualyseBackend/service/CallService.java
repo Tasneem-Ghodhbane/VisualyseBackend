@@ -26,4 +26,7 @@ public class CallService {
         sharedRepository.deleteCallById(id);
     }
 
+    public void deleteAll() {
+        sharedRepository.deleteAllCalls();
+    }
 }

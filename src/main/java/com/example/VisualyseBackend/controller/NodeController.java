@@ -28,4 +28,10 @@ public class NodeController {
     public void deleteNode(@PathVariable("name") String name) {
         nodeService.deleteNodeByName(name);
     }
+
+    @DeleteMapping("/delete-all")
+    public void deleteAllNodes() {
+        nodeService.deleteAll(); // Delete all nodes from your data source
+    }
+
 }

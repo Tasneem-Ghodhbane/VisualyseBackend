@@ -30,5 +30,10 @@ public class NodeService {
     public void deleteNodeByName(String name) {
         sharedRepository.deleteById(name);
     }
+
+    public void deleteAll() {
+        sharedRepository.deleteAll();
+    }
+
 }
 
