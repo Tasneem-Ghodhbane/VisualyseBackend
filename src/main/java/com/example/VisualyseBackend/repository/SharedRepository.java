@@ -46,4 +46,19 @@ public interface SharedRepository extends Neo4jRepository<MyNode,String> {
     @Query("MATCH ()-[c:Calls]->() " +
             "DELETE c")
     void deleteAllCalls();
+
+    @Query("MATCH (start:MyNode)-[r:Calls]->(end:MyNode) " +
+            "WHERE r.id = $id " +
+            "SET r.callType = $callType, r.API = $API, r.topic = $topic, " +
+            "r.eventProduced = $eventProduced, r.description = $description " +
+            "RETURN r.id AS id , "+
+            "r.callType AS callType , "+
+            "r.API AS API , "+
+            "r.topic AS topic , "+
+            "r.eventProduced AS eventProduced , "+
+            "r.description AS description "
+    )
+    MyCall updateCall(Long id, String callType, String API, String topic,
+                      String eventProduced, String description);
+
 }

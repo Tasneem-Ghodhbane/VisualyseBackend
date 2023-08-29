@@ -29,4 +29,8 @@ public class CallService {
     public void deleteAll() {
         sharedRepository.deleteAllCalls();
     }
+
+    public MyCall updateCall(Long id, String callType, String API,
+                           String topic, String eventProduced, String description){
+      return   sharedRepository.updateCall(id,callType, API, topic, eventProduced, description);}
 }
